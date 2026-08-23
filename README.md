@@ -2,15 +2,36 @@
 
 **Breeder Hub** — Web calculator tracking genetic mechanics for pet breeding across the 210 kinds.
 
-Part of the [ComputerPets](https://github.com/RicheyWorks/computerpets) ecosystem. Index: [computerpets-ecosystem](https://github.com/RicheyWorks/computerpets-ecosystem).
+Part of [ComputerPets](https://github.com/RicheyWorks/computerpets). Map: [computerpets-ecosystem](https://github.com/RicheyWorks/computerpets-ecosystem).
 
-> Status: **design scaffold**. This repository ships the contract, README, and layout so implementation can start without renaming the organ later.
+| | |
+| --- | --- |
+| Status | Design scaffold — contract frozen, implementation next |
+| License | MIT |
+| First pet | Still [Rui on the desktop](https://github.com/RicheyWorks/computerpets/blob/main/docs/START-HERE.md). This organ is optional. |
 
-## Why it exists
+## The job
 
 Lineages matter. Kennel shows what two pets can produce, what is canon-illegal (panda × fish), and the rarity of a whelp before anyone mints it.
 
 The flagship overlay already puts a living sticker on the real desktop (Rui first, 210 kinds). Kennel does not replace that. It is one organ.
+
+## Who uses it
+
+Breeders and Hatchery. Calculator, not a slot machine.
+
+## What it is not
+
+Not a place to invent species. Panda × fish is a documented no.
+
+## Architecture
+
+```mermaid
+flowchart LR
+  hatchery --> kennel
+  kennel --> lore
+  kennel --> spring
+```
 
 ## Stack
 
@@ -18,13 +39,6 @@ TypeScript · React 19 · Vite · genetic calculator · Spring lineage API
 
 GroupId / namespace: `com.enterprisepet.kennel`  
 Default listen: `8080`
-
-## Talks to
-
-- computerpets-lore
-- computerpets-minter
-- computerpets-ledger
-- computerpets Spring pet records
 
 ## Contract
 
@@ -41,6 +55,27 @@ Default listen: `8080`
 ### Failure doctrine
 
 Illegal pair → explain, never invent a hybrid species. Missing parent NFT → mark lineage broken, not 'unknown panda'.
+
+## First slice
+
+Build this and stop. Do not boil the ocean.
+
+**Species matrix page + predict two petIds with illegal flag and whelp table.**
+
+You know it works when: Illegal pair explains. Broken lineage marked broken, not 'unknown panda'.
+
+## Environment
+
+`VITE_LORE_URL`, `VITE_API_BASE`
+
+Never commit secrets. Never put Steam or chain keys in the overlay.
+
+## Neighbors
+
+- computerpets-lore
+- computerpets-minter
+- computerpets-ledger
+- computerpets Spring pet records
 
 ## Layout
 
@@ -62,13 +97,12 @@ cd app; npm install; npm run dev
 
 You do not need this service to meet Rui. The [flagship start-here](https://github.com/RicheyWorks/computerpets/blob/main/docs/START-HERE.md) is still the first pet.
 
-## Ecosystem
+## Links
 
-| Organ | Repo |
-| --- | --- |
-| Flagship desktop + Spring | [RicheyWorks/computerpets](https://github.com/RicheyWorks/computerpets) |
-| This organ | [RicheyWorks/computerpets-kennel](https://github.com/RicheyWorks/computerpets-kennel) |
-| Full map | [RicheyWorks/computerpets-ecosystem](https://github.com/RicheyWorks/computerpets-ecosystem) |
+- Flagship: [RicheyWorks/computerpets](https://github.com/RicheyWorks/computerpets)
+- This repo: [RicheyWorks/computerpets-kennel](https://github.com/RicheyWorks/computerpets-kennel)
+- Map: [RicheyWorks/computerpets-ecosystem](https://github.com/RicheyWorks/computerpets-ecosystem)
+- Contract file: [docs/CONTRACT.md](docs/CONTRACT.md)
 
 ## License
 
